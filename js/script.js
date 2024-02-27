@@ -128,25 +128,25 @@ const filtracjaKategoriiPoInpucie = function(){
 }
 
 const filtracjaPoWybranuiKategorii = function(){
-    currentSlide = 0
     widoczneKategorie.forEach(c=>{
-        c.addEventListener('click', function(event) {   
-            event.preventDefault()
-            event.stopPropagation()
-            hideAllSlides()
-            hideAllActiveCategories()
-            c.classList.add('category-item__On-Click');
-            wybranaGrupaFoto = []
-            activeSlides = []
-            aktywneKlucze.forEach(activeC=>{              
-                if (c.classList.contains(`${activeC}`)) {
+    c.addEventListener('click', function(event) {   
+        event.preventDefault()
+        event.stopPropagation()
+        currentSlide = 0
+        hideAllSlides()
+        hideAllActiveCategories()
+        c.classList.add('category-item__On-Click');
+        wybranaGrupaFoto = []
+        activeSlides = []
+        aktywneKlucze.forEach(activeC=>{              
+            if (c.classList.contains(`${activeC}`)) {
                    ostatniPoziomFiltracjiFoto.forEach(f=>{
                             f.classList.add('display-none')
-                        if(f.classList.contains(`${activeC}`)){
-                            f.classList.remove('display-none')
-                            activeSlides.push(f)                            
-                        }
-                    })                                     
+                                if(f.classList.contains(`${activeC}`)){
+                                f.classList.remove('display-none')
+                                activeSlides.push(f)                            
+                                }
+                   })                                     
                 }
             })
             activateCurrentDot(currentSlide)
