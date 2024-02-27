@@ -149,6 +149,7 @@ const filtracjaPoWybranuiKategorii = function(){
                    })                                     
                 }
             })
+            creatDotsForActiveSlides(activeSlides)
             activateCurrentDot(currentSlide)
             startFromFirstSlide(currentSlide)
             return currentSlide            
@@ -172,12 +173,12 @@ const wubranyInPutWszystko = function(selectedOption){
 }
 
 //  filtracja slidów poza / przed użyciem InPut-a
-const clickNaKategorie = function(){
-    currentSlide = 0
+const clickNaKategorie = function(){    
     allCategorys.forEach(c => {
         c.addEventListener('click', function(event){
             event.preventDefault()
             event.stopPropagation()
+            currentSlide = 0
             activeSlides = [];
             aktywneKlucze = [];
             hideAllActiveCategories()
@@ -195,8 +196,6 @@ const clickNaKategorie = function(){
             })
             showActiveSlides()
             startFromFirstSlide(activeSlides)
-            // do tego miejsca wszystko działa prawidłowo
-            // slider się sypie przy próbie przejścia do funkcji "creatDotsForActiveSlides(activeSlides)"
             creatDotsForActiveSlides(activeSlides)
             return activeSlides
         })
@@ -220,9 +219,6 @@ const removeDotActiveFromAll = function(){
 
 const addDotActiveForCurrentDot = function(index){
     document.querySelector(`.dots__dot[data-slide ="${index}"]`).classList.add('dots__dot--active')
-    // console.log(activeSlides.length)
-    // console.log(currentSlide)
-    // console.log('%%%%%%%%%%%%%%%%%%%%')
 }
 
 const creatDotsForActiveSlides = function(){
@@ -306,18 +302,6 @@ dotContainer.addEventListener('click', function(e) {
     }
 })
 
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
-// ***********************************************************
 // ***********************************************************
 // ***********************************************************
 
