@@ -86,6 +86,9 @@ const pierwszyEtapFiltracji = function(selectedOption){
     SETostatniPoziomFiltracjiFoto = [];
     testActiveSlides = [];
     activeSlides = [];
+    //
+  currentSlide = 0;
+    // 
     showAllSlides()
     hideAllSlides()
     allItems.forEach(i=>{
